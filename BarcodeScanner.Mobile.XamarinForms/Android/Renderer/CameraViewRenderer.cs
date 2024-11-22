@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Threading.Tasks;
@@ -23,6 +23,8 @@ using Xamarin.Google.MLKit.Vision.BarCode;
 using Xamarin.Google.MLKit.Vision.Common;
 using Exception = Java.Lang.Exception;
 using Android.Runtime;
+using Android.Hardware;
+using Java.Util;
 
 [assembly: ExportRenderer(typeof(BarcodeScanner.Mobile.CameraView), typeof(BarcodeScanner.Mobile.Renderer.CameraViewRenderer))]
 namespace BarcodeScanner.Mobile.Renderer
@@ -93,7 +95,7 @@ namespace BarcodeScanner.Mobile.Renderer
                 return;
 
             // Preview
-            var previewBuilder = new Preview.Builder();
+            var previewBuilder = new AndroidX.Camera.Core.Preview.Builder();
             var preview = previewBuilder.Build();
             preview.SetSurfaceProvider(Control.SurfaceProvider);
 
@@ -170,7 +172,7 @@ namespace BarcodeScanner.Mobile.Renderer
             };
         }
 
-        private void HandleCustomPreviewSize(Preview preview)
+        private void HandleCustomPreviewSize(AndroidX.Camera.Core.Preview preview)
         {
             if (Element.PreviewWidth.HasValue && Element.PreviewHeight.HasValue)
             {
@@ -211,7 +213,8 @@ namespace BarcodeScanner.Mobile.Renderer
                         FocusMeteringAction.FlagAe).Build());
                 }
 
-                catch(Exception ex) {
+                catch (Exception ex)
+                {
 
                 }
 
@@ -291,7 +294,7 @@ namespace BarcodeScanner.Mobile.Renderer
         }
 
 
-        private class TorchStateObserver : Java.Lang.Object, IObserver
+        private class TorchStateObserver : Java.Lang.Object, AndroidX.Lifecycle.IObserver
         {
             private readonly CameraViewRenderer _renderer;
 
