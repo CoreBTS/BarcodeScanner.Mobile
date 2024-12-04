@@ -54,9 +54,10 @@
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 	  <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
-	  <PackageReference Include="Xamarin.AndroidX.Activity" Version="1.9.0.2" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" />
-	  <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.9.0.2" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" />
-	  <PackageReference Include="BarcodeScanner.Mobile.Maui" Version="8.0.100-alpha1" />
+	  <PackageReference Include="Xamarin.AndroidX.Activity" Version="1.9.3.1" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" />
+	  <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.9.3.1" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" />
+	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Ktx" Version="2.8.7.1" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" />
+	  <PackageReference Include="BarcodeScanner.Mobile.Maui" Version="8.0.100-alpha2" />
 	</ItemGroup>
 
 	<ItemGroup>

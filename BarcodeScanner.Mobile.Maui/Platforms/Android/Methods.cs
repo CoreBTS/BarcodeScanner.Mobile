@@ -11,7 +11,7 @@ namespace BarcodeScanner.Mobile
     // All the code in this file is only included on Android.
     public class Methods
     {
-       
+
 
         internal static BarcodeTypes ConvertBarcodeResultTypes(int barcodeValueType)
         {
@@ -102,7 +102,7 @@ namespace BarcodeScanner.Mobile
                 if (status == PermissionStatus.Granted)
                     return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //Something went wrong
             }

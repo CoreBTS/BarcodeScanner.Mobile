@@ -56,7 +56,7 @@ namespace BarcodeScanner.Mobile
             var previewBuilder = new Preview.Builder()
                 .SetResolutionSelector(selector);
             var preview = previewBuilder.Build();
-            preview.SetSurfaceProvider(_previewView.SurfaceProvider);
+            preview.SetSurfaceProvider(_cameraExecutor, _previewView.SurfaceProvider);
 
             var imageAnalyzerBuilder = new ImageAnalysis.Builder();
             // Frame by frame analyze
@@ -149,7 +149,7 @@ namespace BarcodeScanner.Mobile
                         FocusMeteringAction.FlagAf).AddPoint(aePoint,
                         FocusMeteringAction.FlagAe).Build());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                 }
